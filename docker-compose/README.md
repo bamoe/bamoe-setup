@@ -15,20 +15,29 @@ All published BAMOE images can be pulled directly from Quay.io.  Here are the st
 
     where `<service-name>` equals the name of the service in compose file (optional, leaving this off will install all services in the `docker-compose.yml` file.)
 
-2.  To install the extended infrastructure services, mostly used by PAMOE, use the supplied `docker-compose-infrastructure.yml` in the `docker-compose` folder:
-
-    ```bash
-    docker compose -f docker-compose-infrastructure.yml up [optional]<service-name>
-    ```
-
-    where `<service-name>` equals the name of the service in compose file (optional, leaving this off will install all services in the `docker-compose-infrastructure.yml` file.)
-
-3.  The images will start containers on the following ports:
+    The images will start containers on the following ports:
 
     | Service                   | Port @ localhost              |
     | ------------------------- | ----------------------------- |
     | BAMOE Maven               | [9011](http://localhost:9020) |
     | BAMOE Canvas              | [9090](http://localhost:9090) |
+
+2.  To install the extended infrastructure services, mostly used by PAMOE, use the supplied `docker-compose-infrastructure.yml` in the `docker-compose` folder:
+
+    ```bash
+    docker compose -f docker-compose-infrastructure.yml --profile=container up [optional]<service-name>
+    ```
+
+    where `<service-name>` equals the name of the service in compose file (optional, leaving this off will install all services in the `docker-compose-infrastructure.yml` file.)
+
+    The images will start containers on the following ports:
+    
+    | Service                   | Port @ localhost              |
+    | ------------------------- | ----------------------------- |
+    | BAMOE Management Console  | [8380](http://localhost:8380) |
+    | BAMOE Postgres            | [5432](http://localhost:5432) |
+    | BAMOE pgAdmin             | [8055](http://localhost:8055) |
+
 
 
 

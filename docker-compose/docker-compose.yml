@@ -47,3 +47,12 @@ services:
     image: "quay.io/bamoe/cors-proxy:9.2.0-ibm-0004"
     ports:
       - 7081:8080
+
+  bamoe-managment-console:
+    container_name: bamoe-v920-management-console
+    image: "quay.io/bamoe/management-console:9.2.0-ibm-0004"
+    ports:
+      - "8380:8080"
+    environment:
+      RUNTIME_TOOLS_MANAGEMENT_CONSOLE_APP_NAME: "BAMOE Management Console"
+      RUNTIME_TOOLS_MANAGEMENT_CONSOLE_OIDC_CLIENT_CLIENT_ID: kie-management-console
