@@ -4,7 +4,10 @@ This repository contains all the necessary scripts, configuration files, and oth
 ## Overview
 This repository creates the necessary infrastructure services for a typical BAMOE implementation, as represented by the following diagram(s):
 
-![BAMOE Architecture for Decisions](./doc/images/architecture-decisions.png)
+**BAMOE Architecture for Decisions (DMOE):**
+![BAMOE Architecture for Decisions](./doc/images/architecture-decision.png)
+
+**BAMOE Architecture for Process (PAMOE):**
 ![BAMOE Architecture for Process](./doc/images/architecture-process.png)
 
 ## Requirements for Local Machine Setup
