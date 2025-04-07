@@ -2,9 +2,10 @@
 This repository contains all the necessary scripts, configuration files, and other resources necessary to setup BAMOE v9.x.
 
 ## Overview
-This repository creates the necessary infrastructure services for a typical BAMOE implementation, as represented by the following diagram:
+This repository creates the necessary infrastructure services for a typical BAMOE implementation, as represented by the following diagram(s):
 
-![BAMOE Architecture](./doc/images/architecture.png)
+![BAMOE Architecture for Decisions](./doc/images/architecture-decisions.png)
+![BAMOE Architecture for Process](./doc/images/architecture-process.png)
 
 ## Requirements for Local Machine Setup
 The following instructions are helpful in setting up your local environment in order to do BAMOE development.  All functions of BAMOE are available from the developer workstation, including web-based tools and consoles.
