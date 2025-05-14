@@ -55,4 +55,3 @@ services:
       - "8380:8080"
     environment:
       RUNTIME_TOOLS_MANAGEMENT_CONSOLE_APP_NAME: "BAMOE Management Console"
-      RUNTIME_TOOLS_MANAGEMENT_CONSOLE_OIDC_CLIENT_CLIENT_ID: kie-management-console
