@@ -1,5 +1,5 @@
 # Maven Repository
-With `IBM Business Automation Manager Open Editions v9.2.0` aligning with its previous version BAMOE v8 in the downstream build model, the artifacts are no longer available in Maven Central. The artifacts are shipped as part of the product as a Container Image and Maven Repository inside the compressed file in a consumable format.
+With `IBM Business Automation Manager Open Editions v9.2.x` aligning with its previous version BAMOE v8 in the downstream build model, the artifacts are no longer available in Maven Central. The artifacts are shipped as part of the product as a Container Image and Maven Repository inside the compressed file in a consumable format.
 
 If you have a Maven Repository Manager tool like Artifactory or Nexus, you can import the compressed BAMOE Maven repository content into Maven Repository Manager. For companies without such infrastructure, it is highly recommended to use the container image and make it available within the company for all developers and the continuous integration (CI) system. For companies that already use a Maven Repository Manager tool, developers and the CI system are typically configured to connect with it. If you are using the container image, ensure that it is made available and provide the URL that developers and the CI system need to specify in their `settings.xml` file.
 
@@ -12,14 +12,14 @@ There are two ways to do this (_you should actually do both in case of offline b
 1.  Run the image, mapping its port:
 
 ~~~shell
-docker run -d -p 9021:8080 quay.io/bamoe/maven-repository:9.2.1-ibm-0005
+docker run -d -p 9021:8080 quay.io/bamoe/maven-repository:9.2.1-ibm-0005 -d
 ~~~
 
 or install via the supplied `docker-compose.yml` file:
 
 ~~~shell
 cd docker-compose
-docker compose up bamoe-maven
+docker compose up bamoe-maven-921
 ~~~
 
 You can verify the repository is running by accessing the repository in your browser at http://localhost:<PORT>/com/ibm/bamoe.
