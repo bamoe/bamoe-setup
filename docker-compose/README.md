@@ -7,7 +7,8 @@ For more information on how to properly setup Maven for local development, visit
 ## Container Images
 All published BAMOE images can be pulled directly from Quay.io.  Here are the steps to follow:
 
-1.  To install the basic BAMOE services, use the supplied `docker-compose.yml` in the `docker-compose` folder:
+1.  Navigate to the appropriate folder under `docker-compose`, for the BAMOE version you are installing, and then...
+2.  To install the basic BAMOE services, use the supplied `docker-compose.yml` in the `docker-compose` folder:
 
     ```bash
     docker compose up [optional]<service-name>
@@ -17,10 +18,12 @@ All published BAMOE images can be pulled directly from Quay.io.  Here are the st
 
     The images will start containers on the following ports:
 
-    | Service                   | Port @ localhost              |
-    | ------------------------- | ----------------------------- |
-    | BAMOE Maven               | [9011](http://localhost:9020) |
-    | BAMOE Canvas              | [9090](http://localhost:9090) |
+    | Service                  | Port @ localhost              |
+    | ------------------------ | ----------------------------- |
+    | BAMOE 920 Maven          | [9020](http://localhost:9020) |
+    | BAMOE 921 Maven          | [9021](http://localhost:9021) |
+    | BAMOE Canvas             | [9090](http://localhost:9090) |
+    | BAMOE Management Console | [8380](http://localhost:8380) |
 
 2.  To install the extended infrastructure services, mostly used by PAMOE, use the supplied `docker-compose-infrastructure.yml` in the `docker-compose` folder:
 
@@ -34,9 +37,9 @@ All published BAMOE images can be pulled directly from Quay.io.  Here are the st
     
     | Service                   | Port @ localhost              |
     | ------------------------- | ----------------------------- |
-    | BAMOE Management Console  | [8380](http://localhost:8380) |
     | BAMOE Postgres            | [5432](http://localhost:5432) |
     | BAMOE pgAdmin             | [8055](http://localhost:8055) |
+    | BAMOE KeyCloak            | [8055](http://localhost:8180) |
 
 
 

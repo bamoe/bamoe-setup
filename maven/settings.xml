@@ -37,7 +37,7 @@
             <repositories>
                 <repository>
                     <id>ibm-bamoe-v920-offline-maven-repository</id>
-                    <url>file:///Users/${env.USER}/.m2/bamoe-9.2.0.GA-maven-repository</url>
+                    <url>file:///Users/${user.home}/.m2/bamoe-9.2.0.GA-maven-repository</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -46,10 +46,71 @@
                     </snapshots>
                 </repository>
             </repositories>
+
             <pluginRepositories>
                 <pluginRepository>
                     <id>ibm-bamoe-v920-offline-maven-repository</id>
-                    <url>file:///Users/${env.USER}/.m2/bamoe-9.2.0.GA-maven-repository</url>
+                    <url>file:///Users/${user.home}/.m2/bamoe-9.2.0.GA-maven-repository</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+        <!-- BAMOE v9.2.1 via Container Engine -->
+        <profile>
+            <id>ibm-bamoe-v921-maven-repository</id>
+            <repositories>
+                <repository>
+                    <id>ibm-bamoe-v921-maven-repository</id>
+                    <url>http://localhost:9021</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>ibm-bamoe-v921-maven-repository</id>
+                    <url>http://localhost:9021</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+        <!-- BAMOE 9.2.1 via Offline -->
+        <profile>
+            <id>ibm-bamoe-v921-offline-maven-repository</id>
+            <repositories>
+                <repository>
+                    <id>ibm-bamoe-v921-offline-maven-repository</id>
+                    <url>file:///Users/${user.home}/.m2/bamoe-9.2.1.GA-maven-repository</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>ibm-bamoe-v921-offline-maven-repository</id>
+                    <url>file:///Users/${user.home}/.m2/bamoe-9.2.1.GA-maven-repository</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -62,7 +123,7 @@
     </profiles>
 
     <activeProfiles>
-        <activeProfile>ibm-bamoe-v920-maven-repository</activeProfile>
-        <activeProfile>ibm-bamoe-v920-offline-maven-repository</activeProfile>
+        <activeProfile>ibm-bamoe-v921-maven-repository</activeProfile>
+        <activeProfile>ibm-bamoe-v921-offline-maven-repository</activeProfile>
     </activeProfiles>
 </settings>
