@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: 9.2.1-ibm-0005
+description: A Helm chart to deploy Runtime Tools Management Console on Kubernetes
+name: management-console
+type: application
+version: 9.2.1-ibm-0005

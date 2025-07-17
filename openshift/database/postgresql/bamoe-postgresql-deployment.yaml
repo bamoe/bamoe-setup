@@ -1,0 +1,101 @@
+
+# 1.PostgreSQL ConfigMap for DB Initialization
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init
+data:
+  init.sql: |
+    DO $$
+    BEGIN/
+      IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'bamoe-user') THEN
+        CREATE ROLE "bamoe-user" WITH
+          LOGIN
+          SUPERUSER
+          INHERIT
+          CREATEDB
+          CREATEROLE
+          NOREPLICATION
+          PASSWORD 'bamoe-pass';
+      END IF;
+    END
+    $$;
+
+    DO $$
+    BEGIN
+      IF NOT EXISTS (SELECT FROM pg_database WHERE datname = 'bamoe') THEN
+        CREATE DATABASE bamoe
+          WITH OWNER = "bamoe-user"
+          ENCODING = 'UTF8'
+          LC_COLLATE = 'en_US.utf8'
+          LC_CTYPE = 'en_US.utf8'
+          TABLESPACE = pg_default
+          CONNECTION LIMIT = -1;
+      END IF;
+    END
+    $$;
+
+    GRANT ALL PRIVILEGES ON DATABASE postgres TO "bamoe-user";
+    GRANT ALL PRIVILEGES ON DATABASE bamoe TO "bamoe-user";
+
+    DO $$
+    BEGIN
+      IF EXISTS (SELECT FROM pg_roles WHERE rolname = 'postgres') THEN
+        EXECUTE 'GRANT ALL PRIVILEGES ON DATABASE bamoe TO postgres';
+      END IF;
+    END
+    $$;
+---
+# 2. PostgreSQL Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: image-registry.openshift-image-registry.svc:5000/bamoe/bamoe-postgresql:latest 
+          env:
+            - name: POSTGRES_USER
+              value: bamoe-user
+            - name: POSTGRES_PASSWORD
+              value: bamoe-pass
+            - name: POSTGRES_DB
+              value: bamoe
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+            - name: init-sql
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: postgres-data
+          emptyDir: {}
+        - name: init-sql
+          configMap:
+            name: postgres-init
+---
+# 3. PostgreSQL Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  selector:
+    app: postgres
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

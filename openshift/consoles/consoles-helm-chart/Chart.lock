@@ -1,0 +1,6 @@
+dependencies:
+- name: management-console
+  repository: ""
+  version: 9.2.1-ibm-0005
+digest: sha256:7452c0724a688a0de84836f80d94c814ca8f24ce636ac17c2d087875dd4c6b04
+generated: "2025-06-23T12:59:06.153635348Z"

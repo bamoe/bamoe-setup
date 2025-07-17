@@ -34,7 +34,6 @@ There are several pre-built container images which assist the developer.  These 
 ## Setting up BAMOE - Environments
 - [Maven](./maven/README.md)
 - [Docker Compose](./docker-compose/README.md)
-- [Podman](./podman/README.md)
 - [Red Hat OpenShift](./openshift/README.md)
 
 ## Additional Information (*Appendicies*)

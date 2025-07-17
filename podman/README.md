@@ -1,1 +1,0 @@
-![Under Construction](/doc/images/under-construction.png)
