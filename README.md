@@ -4,17 +4,17 @@ This repository contains all the necessary scripts, configuration files, and oth
 ## Overview
 This repository creates the necessary infrastructure services for a typical BAMOE implementation, as represented by the following diagram(s):
 
-### Setup for Decisions (DMOE)
+### Setup for Decisions (IBM DMOE)
 You will notice from the diagram below, there are only minimal infrastructure services required for DMOE applications.  You can choose to deploy `Maven` either a a container image or into your local `Artifactory` server as an off-line repository, or both.  If you wish to provide visual modeling capabilities to your developers or users, you can choose to deploy `BAMOE Canvas`.  No database or consoles are needed for decisions, however you can configure `Kafka` if your use cases include event-based decisioning.
 
 ![BAMOE Architecture for Decisions](./doc/images/architecture-decision.png)
 
-### Setup for Process (PAMOE)
+### Setup for Process (IBM PAMOE)
 You will notice from the diagram below, there are additional infrastructure services required for PAMOE applications.  You can choose to deploy `Maven` either a a container image or into your local `Artifactory` server as an off-line repository, or both.  If you wish to provide visual modeling capabilities to your developers or users, you can choose to deploy `BAMOE Canvas`.  PAMOE applications require a database for process instance persistence, and you can deploy the DB and it's associated services as a container.  In addition, you can make the `BAMOE Management Console` available to your users as a container.  Finally, you can configure `Kafka` if your use case include event-based decisioning.
 
 ![BAMOE Architecture for Process](./doc/images/architecture-process.png)
 
-### BAMOE Applications
+### IBM BAMOE Applications
 All BAMOE `applications` or `micro-services` are represented as `pods` within your Kubernetes cluster, created from the `CI/CD` pipeline from the container images that each application produces during the build process.  Client applications can invoke `decisions` or `processes` via their published REST API or using Kafka messaging.
 
 ## Requirements for Local Machine Setup
@@ -28,13 +28,14 @@ The following instructions are helpful in setting up your local environment in o
   - [**IBM BAMOE Developer Tools**](https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools), this extension lets you create, edit and visualize business processes (BPMN), decisions (DMN) and test scenarios (SceSim).
   - [**Drools (by Jim Moody)**](https://marketplace.visualstudio.com/items?itemName=jim-moody.drools), this is a third-party editor which does simple syntax highlighting of the Drools Rule Language (DRL) files.
 
-## Running Container Images Locally
-There are several pre-built container images which assist the developer.  These images require a container management system, such as **Docker**, **PodMan**, or **Rancher Desktop**.  Most BAMOE technologists use **Rancher Desktop**, which can be run in `docker` mode, and we can supply a startup repository that installs Canvas and other images into your Rancher installation.  If you plan to install the container images on your laptop, we will also guide you through this, but here are the instructions if you want to get ahead.  
+## Setting up IBM BAMOE Environments
+Use the following links in order to setup IBM BAMOE in the environment of your choice:
 
-## Setting up BAMOE - Environments
-- [Maven](./maven/README.md)
-- [Docker Compose](./docker-compose/README.md)
-- [Red Hat OpenShift](./openshift/README.md)
+- [Docker Compose](./platforms/docker-compose/README.md)
+- [Red Hat OpenShift](./platforms/openshift/README.md)
+
+## Configuring Maven for IBM BAMOE Development
+Use the following link in order to configure [IBM BAMOE Maven](./maven/README.md), using either the offline approach or the container image approach.
 
 ## Additional Information (*Appendicies*)
 This repository is focused on business automation using [**IBM Business Automation Manager Open Editions**](https://www.ibm.com/docs/en/ibamoe/9.2.x) products, specifically the IBM build of [**Kogito**](https://kogito.kie.org/) known as **IBM Decision Manager Open Edition (DMOE)** and **IBM Process Automation Manager Open Edition (PAMOE)**, leveraging [**Quarkus**](https://quarkus.io/) or [**Spring Boot** _(currently for Decisions only)_](https://spring.io/) as the assoicated container runtime.  The following online documentation is available in order to learn various aspects of these products and frameworks:

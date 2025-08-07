@@ -1,0 +1,2 @@
+# IBM Business Automation Manager Open Editions - OpenShift Deployment Scripts
+This folder contains the IBM BAMOE OpenShift deployment script files, used to install IBM BAMOE components into a non-production OpenShift cluster.  
