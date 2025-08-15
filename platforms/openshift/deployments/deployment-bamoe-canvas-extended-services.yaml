@@ -5,7 +5,7 @@ metadata:
     deployment.kubernetes.io/revision: '2'
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-canvas-extended-services:9.2.1-ibm-0005"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-canvas-extended-services\")].image"}]'
     openshift.io/generated-by: OpenShiftNewApp
-  resourceVersion: '68411'
+  resourceVersion: '169773'
   name: bamoe-canvas-extended-services
   uid: ac869d0c-3898-46ae-84c1-d0e99d100f52
   creationTimestamp: '2025-08-07T02:25:58Z'
@@ -78,10 +78,20 @@ metadata:
               'f:containers':
                 'k:{"name":"bamoe-canvas-extended-services"}':
                   'f:image': {}
-    - manager: kube-controller-manager
+    - manager: kubectl-label
       operation: Update
       apiVersion: apps/v1
       time: '2025-08-07T02:25:59Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-08-10T13:58:25Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -112,16 +122,6 @@ metadata:
           'f:replicas': {}
           'f:updatedReplicas': {}
       subresource: status
-    - manager: kubectl-label
-      operation: Update
-      apiVersion: apps/v1
-      time: '2025-08-07T02:25:59Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:labels':
-            'f:app.kubernetes.io/part-of': {}
-            'f:app.openshift.io/runtime': {}
   namespace: bamoe-v921
   labels:
     app: bamoe-canvas-extended-services
@@ -171,15 +171,15 @@ status:
   readyReplicas: 1
   availableReplicas: 1
   conditions:
-    - type: Available
-      status: 'True'
-      lastUpdateTime: '2025-08-07T02:25:59Z'
-      lastTransitionTime: '2025-08-07T02:25:59Z'
-      reason: MinimumReplicasAvailable
-      message: Deployment has minimum availability.
     - type: Progressing
       status: 'True'
       lastUpdateTime: '2025-08-07T02:25:59Z'
       lastTransitionTime: '2025-08-07T02:25:58Z'
       reason: NewReplicaSetAvailable
       message: ReplicaSet "bamoe-canvas-extended-services-68c88c68b8" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2025-08-10T13:58:25Z'
+      lastTransitionTime: '2025-08-10T13:58:25Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.

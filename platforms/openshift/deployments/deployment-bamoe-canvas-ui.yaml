@@ -5,7 +5,7 @@ metadata:
     deployment.kubernetes.io/revision: '2'
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-canvas-ui:9.2.1-ibm-0005"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-canvas-ui\")].image"}]'
     openshift.io/generated-by: OpenShiftNewApp
-  resourceVersion: '68533'
+  resourceVersion: '350435'
   name: bamoe-canvas-ui
   uid: 9a6a4339-e4ff-402d-a3a3-5ce14bc34191
   creationTimestamp: '2025-08-07T02:26:02Z'
@@ -101,7 +101,7 @@ metadata:
     - manager: kube-controller-manager
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-07T02:26:04Z'
+      time: '2025-08-11T17:11:58Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -186,15 +186,15 @@ status:
   readyReplicas: 1
   availableReplicas: 1
   conditions:
-    - type: Available
-      status: 'True'
-      lastUpdateTime: '2025-08-07T02:26:04Z'
-      lastTransitionTime: '2025-08-07T02:26:04Z'
-      reason: MinimumReplicasAvailable
-      message: Deployment has minimum availability.
     - type: Progressing
       status: 'True'
       lastUpdateTime: '2025-08-07T02:26:04Z'
       lastTransitionTime: '2025-08-07T02:26:02Z'
       reason: NewReplicaSetAvailable
       message: ReplicaSet "bamoe-canvas-ui-cff94dfd7" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2025-08-11T17:11:58Z'
+      lastTransitionTime: '2025-08-11T17:11:58Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.

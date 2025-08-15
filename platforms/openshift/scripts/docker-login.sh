@@ -1,9 +1,16 @@
 #!/bin/bash
 
-source ../ocp.properties
+if [ "$1" == "" ]; then
+    echo -e "\nPlease specify a property file name..."
+    echo -e "  Example usage: ./docker-login.sh ../default-ocp.properties\n"
+    exit 1
+fi
+
+# Load the property file
+source $1
 
 # Login to OCP 
-source ./oc-login.sh
+source ./oc-login.sh $1
 
 # Login to Docker using OCP token
 echo -e "\nLogging into Docker using OCP token..."
