@@ -72,4 +72,30 @@ crc start
 ## Installing Common IBM BAMOE Applications
 There is a short list of IBM BAMOE applications that you should deploy to the OpenShift cluster, in order to make those applications available to the developer/business user.  These applications, while they rely on infrastructure services, do not require the infrastructure services to be deployed in any particular order.  So we can deploy all IBM BAMOE appliations first, and then add the various infrastucture services that our applications will require.
 
-![Under Construction](/doc/images/under-construction.png)
+### IBM BAMOE Maven
+With `IBM Business Automation Manager Open Editions v9.2.x` aligning with its previous version BAMOE v8 in the downstream build model, the artifacts are no longer available in Maven Central. The artifacts are shipped as part of the product as a Container Image and Maven Repository inside the compressed file in a consumable format.  In order to build and deploy BAMOE applications, you must setup the BAMOE Maven libraries so that developers and the CI/CD pipeline can perform these builds.  There are two steps to this setup, the first being to install the BAMOE libraries as either an offline .zip file or as a container image.  The preferred method is the container image, and as such you can use the followoing scripts in order to set this up as an OpenShift route:
+
+```shell
+cd ./bamoe-setup/platforms/openshift/scripts
+./setup-bamoe-maven.sh ../default-ocp.properties
+```
+
+This script will use the supplied deploymet .YAML files and create the necessary deployments, services, and routes in order for a developer to connect to the Maven libraries.  From here, you simply need to configure your local Mave settings file to point to the BAMOE Maven route in OpenShift.  Follow the guidelines [here](../../maven/README.md) in order to finalize your configuration of BAMOE Maven.
+
+### IBM BAMOE Canvas
+
+### IBM BAMOE Management Console
+
+## Installing Supporting Infrastructure Services
+
+### PostgreSQL Database
+
+### pgWeb PostgreSQL Database Administration 
+
+### Keycloak Identity Access Managment
+
+### Apache Kafka
+Apache Kafka has been installed in OpenShift using the Strimzi operator, in the `BAMOE_INFRASTRUCTURE_PROJECT` project.  The cluster itself is within the `BAMOE_INFRASTRUCTURE_PROJECT` namespace.  There is also an OpenShift route used to expose the Kafka Bootstrap endpoint for clients outside of the cluster.  Notably, the Confluent VS Code extension which allows you to interact with a Kafka cluster has been installed, but requires configuration. The host for the bootstrap client is `kafka-cluster-kafka-bootstrap-bamoe-v921-infrastructure.apps-crc.testing` on port 443, the HTTPS port. Because of that, a certificate is needed for the client. That certificate is in the `openshift/certs` folder called `ocp-ca.crt. 
+
+
+

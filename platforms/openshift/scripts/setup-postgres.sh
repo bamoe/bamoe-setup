@@ -2,7 +2,7 @@
 
 if [ "$1" == "" ]; then
     echo -e "\nPlease specify a property file name..."
-    echo -e "  Example usage: setup-postgres.sh ./default-ocp.properties\n"
+    echo -e "  Example usage: setup-postgres.sh ../default-ocp.properties\n"
     exit 1
 fi
 
@@ -12,7 +12,7 @@ source $1
 # Login to OCP 
 source ./oc-login.sh $1
 
-# Select the BAMOE Infrastructure project
+# Select the default project for BAMOE infrastrudture applications
 oc project $BAMOE_INFRASTRUCTURE_PROJECT
 
 # Installation 

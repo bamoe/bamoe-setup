@@ -2,7 +2,7 @@
 
 if [ "$1" == "" ]; then
     echo -e "\nPlease specify a property file name..."
-    echo -e "  Example usage: setup-bamoe-maven.sh ./default-ocp.properties\n"
+    echo -e "  Example usage: setup-bamoe-maven.sh ../default-ocp.properties\n"
     exit 1
 fi
 
