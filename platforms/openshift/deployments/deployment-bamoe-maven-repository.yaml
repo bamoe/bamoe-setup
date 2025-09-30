@@ -121,12 +121,12 @@ metadata:
           'f:replicas': {}
           'f:updatedReplicas': {}
       subresource: status
-  namespace: bamoe-v921
+  namespace: bamoe-v930
   labels:
     app: bamoe-maven-repository
     app.kubernetes.io/component: bamoe-maven-repository
     app.kubernetes.io/instance: bamoe-maven-repository
-    app.kubernetes.io/part-of: bamoe-v921
+    app.kubernetes.io/part-of: bamoe-v930
 spec:
   replicas: 1
   selector:
