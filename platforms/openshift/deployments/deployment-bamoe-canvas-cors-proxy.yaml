@@ -3,18 +3,28 @@ apiVersion: apps/v1
 metadata:
   annotations:
     deployment.kubernetes.io/revision: '2'
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-canvas-cors-proxy:9.2.1-ibm-0005"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-canvas-cors-proxy\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-canvas-cors-proxy:9.3.0-ibm-0007"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-canvas-cors-proxy\")].image"}]'
     openshift.io/generated-by: OpenShiftNewApp
-  resourceVersion: '168061'
+  resourceVersion: '9380206'
   name: bamoe-canvas-cors-proxy
-  uid: 3b16dabb-6829-4139-9e1b-dacb4a25585f
-  creationTimestamp: '2025-08-07T02:26:00Z'
+  uid: 5bb400b2-0694-4e0d-aa2c-6d8647b201e3
+  creationTimestamp: '2025-10-12T17:00:38Z'
   generation: 2
   managedFields:
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-10-12T17:00:38Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
     - manager: oc
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-07T02:26:00Z'
+      time: '2025-10-12T17:00:38Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -69,7 +79,7 @@ metadata:
     - manager: openshift-controller-manager
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-07T02:26:00Z'
+      time: '2025-10-12T17:00:38Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:spec':
@@ -78,20 +88,10 @@ metadata:
               'f:containers':
                 'k:{"name":"bamoe-canvas-cors-proxy"}':
                   'f:image': {}
-    - manager: kubectl-label
-      operation: Update
-      apiVersion: apps/v1
-      time: '2025-08-07T02:26:01Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:labels':
-            'f:app.kubernetes.io/part-of': {}
-            'f:app.openshift.io/runtime': {}
     - manager: kube-controller-manager
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-10T13:52:11Z'
+      time: '2025-10-12T17:00:47Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -122,12 +122,12 @@ metadata:
           'f:replicas': {}
           'f:updatedReplicas': {}
       subresource: status
-  namespace: bamoe-v921
+  namespace: bamoe-v930
   labels:
     app: bamoe-canvas-cors-proxy
     app.kubernetes.io/component: bamoe-canvas-cors-proxy
     app.kubernetes.io/instance: bamoe-canvas-cors-proxy
-    app.kubernetes.io/part-of: bamoe-v921
+    app.kubernetes.io/part-of: bamoe-v930
     app.openshift.io/runtime: nodejs
 spec:
   replicas: 1
@@ -144,7 +144,7 @@ spec:
     spec:
       containers:
         - name: bamoe-canvas-cors-proxy
-          image: 'quay.io/bamoe/cors-proxy@sha256:080a4765463d545adb08850af061e977454f2b76339b61120171ff80db54436a'
+          image: 'quay.io/bamoe/cors-proxy@sha256:d31127f3fe7381e96bd659e7f82a75823f6e0903f846f57df7e24cb654aecb94'
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -171,15 +171,15 @@ status:
   readyReplicas: 1
   availableReplicas: 1
   conditions:
-    - type: Progressing
-      status: 'True'
-      lastUpdateTime: '2025-08-07T02:26:01Z'
-      lastTransitionTime: '2025-08-07T02:26:00Z'
-      reason: NewReplicaSetAvailable
-      message: ReplicaSet "bamoe-canvas-cors-proxy-5d8657686" has successfully progressed.
     - type: Available
       status: 'True'
-      lastUpdateTime: '2025-08-10T13:52:11Z'
-      lastTransitionTime: '2025-08-10T13:52:11Z'
+      lastUpdateTime: '2025-10-12T17:00:47Z'
+      lastTransitionTime: '2025-10-12T17:00:47Z'
       reason: MinimumReplicasAvailable
       message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2025-10-12T17:00:47Z'
+      lastTransitionTime: '2025-10-12T17:00:38Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "bamoe-canvas-cors-proxy-6fcc585557" has successfully progressed.

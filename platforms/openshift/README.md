@@ -19,13 +19,13 @@ OCP_URL=https://api.crc.testing:6443
 OCP_CONSOLE_URL=https://console-openshift-console.apps-crc.testing
 OCP_USER=kubeadmin
 OCP_PASS=<password>
-OCP_DEFAULT_PROJECT=bamoe-v921
+OCP_DEFAULT_PROJECT=bamoe-v930
 
 # IBM BAMOE Properties
-BAMOE_VERSION=9.2.1-ibm-0005
-BAMOE_GROUP=bamoe-v921
-BAMOE_PROJECT=bamoe-v921
-BAMOE_INFRASTRUCTURE_PROJECT=bamoe-v921-infrastructure
+BAMOE_VERSION=9.3.0-ibm-0007
+BAMOE_GROUP=bamoe-v930
+BAMOE_PROJECT=bamoe-v930
+BAMOE_INFRASTRUCTURE_PROJECT=bamoe-v930-infrastructure
 BAMOE_APPS_PROJECT=bamoe-apps
 
 # IBM BAMOE Maven

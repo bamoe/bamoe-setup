@@ -3,27 +3,18 @@ apiVersion: apps/v1
 metadata:
   annotations:
     deployment.kubernetes.io/revision: '2'
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-management-console:9.2.1-ibm-0005"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-management-console\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-management-console:9.3.0-ibm-0007"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-management-console\")].image"}]'
     openshift.io/generated-by: OpenShiftNewApp
-  resourceVersion: '349194'
+  resourceVersion: '9383349'
   name: bamoe-management-console
-  uid: db33e470-5e7c-40ad-99e5-961e830d88ee
-  creationTimestamp: '2025-08-07T02:25:40Z'
+  uid: 97f01130-5cbb-4062-b056-53e58f4216a1
+  creationTimestamp: '2025-10-12T17:23:20Z'
   generation: 2
   managedFields:
-    - manager: kubectl-label
-      operation: Update
-      apiVersion: apps/v1
-      time: '2025-08-07T02:25:40Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:labels':
-            'f:app.kubernetes.io/part-of': {}
     - manager: oc
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-07T02:25:40Z'
+      time: '2025-10-12T17:23:20Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -75,10 +66,20 @@ metadata:
               'f:schedulerName': {}
               'f:securityContext': {}
               'f:terminationGracePeriodSeconds': {}
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-10-12T17:23:21Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
     - manager: openshift-controller-manager
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-07T02:25:41Z'
+      time: '2025-10-12T17:23:21Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:spec':
@@ -90,7 +91,7 @@ metadata:
     - manager: kube-controller-manager
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-11T17:01:28Z'
+      time: '2025-10-12T17:23:22Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -121,12 +122,13 @@ metadata:
           'f:replicas': {}
           'f:updatedReplicas': {}
       subresource: status
-  namespace: bamoe-v921
+  namespace: bamoe-v930
   labels:
     app: bamoe-management-console
     app.kubernetes.io/component: bamoe-management-console
     app.kubernetes.io/instance: bamoe-management-console
-    app.kubernetes.io/part-of: bamoe-v921
+    app.kubernetes.io/part-of: bamoe-v930
+    app.openshift.io/runtime: js
 spec:
   replicas: 1
   selector:
@@ -142,7 +144,7 @@ spec:
     spec:
       containers:
         - name: bamoe-management-console
-          image: 'quay.io/bamoe/management-console@sha256:445287712b4738b31931f8d66d87a98250d0018a49e2429c6e4cd47bec0c3cb7'
+          image: 'quay.io/bamoe/management-console@sha256:016fe8471ef564e5e2b9113e56a13921ab7280f6afea9216e560ee4a8113feaa'
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -169,15 +171,15 @@ status:
   readyReplicas: 1
   availableReplicas: 1
   conditions:
-    - type: Progressing
-      status: 'True'
-      lastUpdateTime: '2025-08-07T02:25:42Z'
-      lastTransitionTime: '2025-08-07T02:25:40Z'
-      reason: NewReplicaSetAvailable
-      message: ReplicaSet "bamoe-management-console-67c46bd88d" has successfully progressed.
     - type: Available
       status: 'True'
-      lastUpdateTime: '2025-08-11T17:01:28Z'
-      lastTransitionTime: '2025-08-11T17:01:28Z'
+      lastUpdateTime: '2025-10-12T17:23:22Z'
+      lastTransitionTime: '2025-10-12T17:23:22Z'
       reason: MinimumReplicasAvailable
       message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2025-10-12T17:23:22Z'
+      lastTransitionTime: '2025-10-12T17:23:20Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "bamoe-management-console-76fb649574" has successfully progressed.
