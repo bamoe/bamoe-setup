@@ -10,7 +10,7 @@ As BAMOE is on a continuous release cycle, it is essential to keep the features 
 You can use standard Git commands in order to switch your local version to a specific branch, such as:
 
 ```shell
-git checkout bamoe-930
+git checkout bamoe-921
 ```
 
 ### Setup for Decisions (IBM DMOE)
