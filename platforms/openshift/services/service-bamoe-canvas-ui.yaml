@@ -2,22 +2,22 @@
 apiVersion: v1
 metadata:
   name: bamoe-canvas-ui
-  namespace: bamoe-v921
-  uid: 569fafd2-c857-44bb-9521-26d95478d1d7
-  resourceVersion: '68506'
-  creationTimestamp: '2025-08-07T02:26:02Z'
+  namespace: bamoe-v930
+  uid: 074592dd-f678-44e4-90e3-f383b5bc4e78
+  resourceVersion: '9380123'
+  creationTimestamp: '2025-10-12T17:00:39Z'
   labels:
     app: bamoe-canvas-ui
     app.kubernetes.io/component: bamoe-canvas-ui
     app.kubernetes.io/instance: bamoe-canvas-ui
-    app.kubernetes.io/part-of: bamoe-v921
+    app.kubernetes.io/part-of: bamoe-v930
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
   managedFields:
     - manager: oc
       operation: Update
       apiVersion: v1
-      time: '2025-08-07T02:26:02Z'
+      time: '2025-10-12T17:00:39Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -45,14 +45,14 @@ metadata:
     - manager: kubectl-label
       operation: Update
       apiVersion: v1
-      time: '2025-08-07T02:26:03Z'
+      time: '2025-10-12T17:00:40Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
           'f:labels':
             'f:app.kubernetes.io/part-of': {}
 spec:
-  clusterIP: 10.217.4.204
+  clusterIP: 10.217.4.152
   ipFamilies:
     - IPv4
   ports:
@@ -62,7 +62,7 @@ spec:
       targetPort: 8080
   internalTrafficPolicy: Cluster
   clusterIPs:
-    - 10.217.4.204
+    - 10.217.4.152
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None

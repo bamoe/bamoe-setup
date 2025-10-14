@@ -2,22 +2,22 @@
 apiVersion: v1
 metadata:
   name: bamoe-canvas-cors-proxy
-  namespace: bamoe-v921
-  uid: c6af9d0e-9480-4285-a7af-9510d7fe0b90
-  resourceVersion: '68447'
-  creationTimestamp: '2025-08-07T02:26:00Z'
+  namespace: bamoe-v930
+  uid: a8bd54c5-ee96-449b-9868-63ac8070b8ca
+  resourceVersion: '9380073'
+  creationTimestamp: '2025-10-12T17:00:38Z'
   labels:
     app: bamoe-canvas-cors-proxy
     app.kubernetes.io/component: bamoe-canvas-cors-proxy
     app.kubernetes.io/instance: bamoe-canvas-cors-proxy
-    app.kubernetes.io/part-of: bamoe-v921
+    app.kubernetes.io/part-of: bamoe-v930
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
   managedFields:
     - manager: kubectl-label
       operation: Update
       apiVersion: v1
-      time: '2025-08-07T02:26:00Z'
+      time: '2025-10-12T17:00:38Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -26,7 +26,7 @@ metadata:
     - manager: oc
       operation: Update
       apiVersion: v1
-      time: '2025-08-07T02:26:00Z'
+      time: '2025-10-12T17:00:38Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -52,7 +52,7 @@ metadata:
           'f:sessionAffinity': {}
           'f:type': {}
 spec:
-  clusterIP: 10.217.5.234
+  clusterIP: 10.217.4.66
   ipFamilies:
     - IPv4
   ports:
@@ -62,7 +62,7 @@ spec:
       targetPort: 8080
   internalTrafficPolicy: Cluster
   clusterIPs:
-    - 10.217.5.234
+    - 10.217.4.66
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None

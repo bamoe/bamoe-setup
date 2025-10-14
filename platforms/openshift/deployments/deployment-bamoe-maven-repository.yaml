@@ -3,27 +3,18 @@ apiVersion: apps/v1
 metadata:
   annotations:
     deployment.kubernetes.io/revision: '2'
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-maven-repository:9.2.1-ibm-0005"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-maven-repository\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-maven-repository:9.3.0-ibm-0007"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-maven-repository\")].image"}]'
     openshift.io/generated-by: OpenShiftNewApp
-  resourceVersion: '58692'
+  resourceVersion: '9376998'
   name: bamoe-maven-repository
-  uid: 7a31e62b-9066-4d1f-9ff2-bbb63f3aefd6
-  creationTimestamp: '2025-08-07T01:04:19Z'
+  uid: f6ed9e27-f099-4981-8bd2-b4ce06554f94
+  creationTimestamp: '2025-10-12T16:41:04Z'
   generation: 2
   managedFields:
-    - manager: kubectl-label
-      operation: Update
-      apiVersion: apps/v1
-      time: '2025-08-07T01:04:19Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:labels':
-            'f:app.kubernetes.io/part-of': {}
     - manager: oc
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-07T01:04:19Z'
+      time: '2025-10-12T16:41:04Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -78,7 +69,7 @@ metadata:
     - manager: openshift-controller-manager
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-07T01:04:19Z'
+      time: '2025-10-12T16:41:04Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:spec':
@@ -90,7 +81,7 @@ metadata:
     - manager: kube-controller-manager
       operation: Update
       apiVersion: apps/v1
-      time: '2025-08-07T01:04:20Z'
+      time: '2025-10-12T16:41:05Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -121,6 +112,15 @@ metadata:
           'f:replicas': {}
           'f:updatedReplicas': {}
       subresource: status
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-10-12T16:41:05Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
   namespace: bamoe-v930
   labels:
     app: bamoe-maven-repository
@@ -142,7 +142,7 @@ spec:
     spec:
       containers:
         - name: bamoe-maven-repository
-          image: 'quay.io/bamoe/maven-repository@sha256:e09090c1b747a79f7c403c3bc24f5e1c135f61dac87a42a4c71df53926319856'
+          image: 'quay.io/bamoe/maven-repository@sha256:1ab3e6fa9a3cb866411601a0bb9b1047f9beefe7363afe9d41dfcde2fda7694f'
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -171,13 +171,13 @@ status:
   conditions:
     - type: Available
       status: 'True'
-      lastUpdateTime: '2025-08-07T01:04:20Z'
-      lastTransitionTime: '2025-08-07T01:04:20Z'
+      lastUpdateTime: '2025-10-12T16:41:05Z'
+      lastTransitionTime: '2025-10-12T16:41:05Z'
       reason: MinimumReplicasAvailable
       message: Deployment has minimum availability.
     - type: Progressing
       status: 'True'
-      lastUpdateTime: '2025-08-07T01:04:20Z'
-      lastTransitionTime: '2025-08-07T01:04:19Z'
+      lastUpdateTime: '2025-10-12T16:41:05Z'
+      lastTransitionTime: '2025-10-12T16:41:04Z'
       reason: NewReplicaSetAvailable
-      message: ReplicaSet "bamoe-maven-repository-bc57d84" has successfully progressed.
+      message: ReplicaSet "bamoe-maven-repository-6d94d97485" has successfully progressed.
