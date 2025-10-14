@@ -29,7 +29,7 @@ All BAMOE `applications` or `micro-services` are represented as `pods` within yo
 ## Requirements for Local Machine Setup
 The following instructions are helpful in setting up your local environment in order to do BAMOE development.  All functions of BAMOE are available from the developer workstation, including web-based tools and consoles.
 
-- **JDK 17** (https://developer.ibm.com/languages/java/semeru-runtimes/downloads/), prefer the IBM Semeru release of JDK, but any OpenJDK will do
+- **JDK 17 or JDK 21** (https://developer.ibm.com/languages/java/semeru-runtimes/downloads/), prefer the IBM Semeru release of JDK, but any OpenJDK will do
 - **GIT Command Line Interface** (https://git-scm.com/downloads), plus you are free to install any GIT related extensions or simply use the command line tools
 - **Maven Command Line Interface** (https://maven.apache.org/install.html), used for builds and deployments of BAMOE libraries, plus you are free to install any Maven related extensions or simply use command line tools.
 - [**VS Code IDE**](https://code.visualstudio.com/download), and install the following extensions from the VS Code Marketplace:
