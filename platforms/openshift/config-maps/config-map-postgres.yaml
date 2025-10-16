@@ -44,8 +44,12 @@ data:
     END
     $$;
 
+    ---------------------------------------------------
+    -- BEGIN: data_audit.sql
+    ---------------------------------------------------
     DO $$
     BEGIN
+
     --
     -- Name: audit_query; Type: TABLE; Schema: public; Owner: -
     --
@@ -188,7 +192,7 @@ data:
         sla_due_date timestamp(6) without time zone,
         state character varying(255),
         event_user character varying(255),
-        CONSTRAINT process_instance_state_log_event_type_check CHECK (((event_type)::text = ANY ((ARRAY['ACTIVE'::character varying, 'COMPLETED'::character varying, 'SLA_VIOLATION'::character varying, 'MIGRATED'::character varying, 'STATE_UPDATED'::character varying])::text[])))
+        CONSTRAINT process_instance_state_log_event_type_check CHECK (((event_type)::text = ANY ((ARRAY['ACTIVE'::character varying, 'COMPLETED'::character varying, 'SLA_VIOLATION'::character varying, 'MIGRATED'::character varying, 'STATE_UPDATED'::character varying, 'RETRIGGERED'::character varying])::text[])))
     );
 
 
@@ -861,7 +865,7 @@ data:
     --
 
     ALTER TABLE ONLY process_instance_state_roles_log
-        ADD CONSTRAINT fk_process_instance_state_pid FOREIGN KEY (process_instance_state_log_id) REFERENCES process_instance_state_log(id);
+        ADD CONSTRAINT fk_process_instance_state_pid FOREIGN KEY (process_instance_state_log_id) REFERENCES process_instance_state_log(id) ON DELETE CASCADE;
 
 
     --
@@ -869,7 +873,7 @@ data:
     --
 
     ALTER TABLE ONLY task_instance_assignment_users_log
-        ADD CONSTRAINT fk_task_instance_assignment_log_tid FOREIGN KEY (task_instance_assignment_log_id) REFERENCES task_instance_assignment_log(id);
+        ADD CONSTRAINT fk_task_instance_assignment_log_tid FOREIGN KEY (task_instance_assignment_log_id) REFERENCES task_instance_assignment_log(id) ON DELETE CASCADE;
 
 
     --
@@ -877,17 +881,25 @@ data:
     --
 
     ALTER TABLE ONLY task_instance_deadline_notification_log
-        ADD CONSTRAINT fk_task_instance_deadline_tid FOREIGN KEY (task_instance_deadline_log_id) REFERENCES task_instance_deadline_log(id);
+        ADD CONSTRAINT fk_task_instance_deadline_tid FOREIGN KEY (task_instance_deadline_log_id) REFERENCES task_instance_deadline_log(id) ON DELETE CASCADE;
 
 
     --
     -- PostgreSQL database dump complete
     --
+
     END
     $$;
+    ---------------------------------------------------
+    -- END: data_audit.sql
+    ---------------------------------------------------
 
+    ---------------------------------------------------
+    -- BEGIN: data_index.sql
+    ---------------------------------------------------
     DO $$
     BEGIN
+
     --
     -- Name: attachments; Type: TABLE; Schema: public; Owner: -
     --
@@ -1054,7 +1066,8 @@ data:
         process_instance_id character varying(255) NOT NULL,
         sla_due_date timestamp without time zone,
         retrigger boolean DEFAULT false,
-        error_message character varying(65535)
+        error_message character varying(65535),
+        cancel_type character varying(255)
     );
 
 
@@ -1403,6 +1416,13 @@ data:
 
 
     --
+    -- Name: idx_jobs_piid; Type: INDEX; Schema: public; Owner: -
+    --
+
+    CREATE INDEX idx_jobs_piid ON jobs USING btree (process_instance_id);
+
+
+    --
     -- Name: idx_milestones_piid; Type: INDEX; Schema: public; Owner: -
     --
 
@@ -1449,6 +1469,13 @@ data:
     --
 
     CREATE INDEX idx_tasks_excluded_users_tid ON tasks_excluded_users USING btree (task_id);
+
+
+    --
+    -- Name: idx_tasks_piid; Type: INDEX; Schema: public; Owner: -
+    --
+
+    CREATE INDEX idx_tasks_piid ON tasks USING btree (process_instance_id);
 
 
     --
@@ -1596,11 +1623,43 @@ data:
     --
     -- PostgreSQL database dump complete
     --
+
     END
     $$;
+    ---------------------------------------------------
+    -- END: data_index.sql
+    ---------------------------------------------------
 
+    ---------------------------------------------------
+    -- BEGIN: jobs_service.sql
+    ---------------------------------------------------
     DO $$
     BEGIN
+
+    --
+    -- Name: job_status; Type: TYPE; Schema: public; Owner: -
+    --
+
+    CREATE TYPE job_status AS ENUM (
+        'ERROR',
+        'EXECUTED',
+        'SCHEDULED',
+        'RETRY',
+        'CANCELED'
+    );
+
+
+    --
+    -- Name: job_type; Type: TYPE; Schema: public; Owner: -
+    --
+
+    CREATE TYPE job_type AS ENUM (
+        'HTTP'
+    );
+
+
+
+
     --
     -- Name: job_details; Type: TABLE; Schema: public; Owner: -
     --
@@ -1675,11 +1734,19 @@ data:
     --
     -- PostgreSQL database dump complete
     --
+
     END
     $$;
+    ---------------------------------------------------
+    -- END: jobs_service.sql
+    ---------------------------------------------------
 
+    ---------------------------------------------------
+    -- BEGIN: user_tasks.sql
+    ---------------------------------------------------
     DO $$
     BEGIN
+
     --
     -- Name: jbpm_user_tasks; Type: TABLE; Schema: public; Owner: -
     --
@@ -2056,10 +2123,31 @@ data:
 
 
     --
+    -- Name: idx_jbpm_user_tasks_comments_tid; Type: INDEX; Schema: public; Owner: -
+    --
+
+    CREATE INDEX idx_jbpm_user_tasks_comments_tid ON jbpm_user_tasks_comments USING btree (task_id);
+
+
+    --
     -- Name: idx_jbpm_user_tasks_deadline_tid; Type: INDEX; Schema: public; Owner: -
     --
 
     CREATE INDEX idx_jbpm_user_tasks_deadline_tid ON jbpm_user_tasks_deadline USING btree (task_id);
+
+
+    --
+    -- Name: idx_jbpm_user_tasks_deadline_timer_jid; Type: INDEX; Schema: public; Owner: -
+    --
+
+    CREATE INDEX idx_jbpm_user_tasks_deadline_timer_jid ON jbpm_user_tasks_deadline_timer USING btree (notification_job_id);
+
+
+    --
+    -- Name: idx_jbpm_user_tasks_deadline_timer_tid; Type: INDEX; Schema: public; Owner: -
+    --
+
+    CREATE INDEX idx_jbpm_user_tasks_deadline_timer_tid ON jbpm_user_tasks_deadline_timer USING btree (task_id);
 
 
     --
@@ -2123,6 +2211,27 @@ data:
     --
 
     CREATE INDEX idx_jbpm_user_tasks_potential_users_uid ON jbpm_user_tasks_potential_users USING btree (user_id);
+
+
+    --
+    -- Name: idx_jbpm_user_tasks_reassignment_tid; Type: INDEX; Schema: public; Owner: -
+    --
+
+    CREATE INDEX idx_jbpm_user_tasks_reassignment_tid ON jbpm_user_tasks_reassignment USING btree (task_id);
+
+
+    --
+    -- Name: idx_jbpm_user_tasks_reassignment_timer_jid; Type: INDEX; Schema: public; Owner: -
+    --
+
+    CREATE INDEX idx_jbpm_user_tasks_reassignment_timer_jid ON jbpm_user_tasks_reassignment_timer USING btree (reassignment_job_id);
+
+
+    --
+    -- Name: idx_jbpm_user_tasks_reassignment_timer_tid; Type: INDEX; Schema: public; Owner: -
+    --
+
+    CREATE INDEX idx_jbpm_user_tasks_reassignment_timer_tid ON jbpm_user_tasks_reassignment_timer USING btree (task_id);
 
 
     --
@@ -2247,11 +2356,20 @@ data:
     --
     -- PostgreSQL database dump complete
     --
+
+
     END
     $$;
+    ---------------------------------------------------
+    -- END: user_tasks.sql
+    ---------------------------------------------------
 
+    ---------------------------------------------------
+    -- BEGIN: runtime_persistence.sql
+    ---------------------------------------------------
     DO $$
     BEGIN
+
     --
     -- Name: business_key_mapping; Type: TABLE; Schema: public; Owner: -
     --
@@ -2377,5 +2495,11 @@ data:
     --
     -- PostgreSQL database dump complete
     --
+
     END
     $$;
+    ---------------------------------------------------
+    -- END: runtime_persistence.sql
+    ---------------------------------------------------
+
+    
