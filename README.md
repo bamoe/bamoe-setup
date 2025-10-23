@@ -4,15 +4,6 @@ This repository contains all the necessary scripts, configuration files, and oth
 ## Overview
 This repository creates the necessary infrastructure services for a typical BAMOE implementation, as represented by the following diagram(s):
 
-## Repository Branches
-As BAMOE is on a continuous release cycle, it is essential to keep the features of the setup instructions bound to each product's release.  This is accomplished by storing each component in a branch consistent with the version of BAMOE is is related to.  The default branch of this repository is `main`, which will always reflect the current relese of BAMOE.  In addition to the `main` branch, there is a branch for each version of the asset for previous versions of BAMOE.  The naming convention for such branches is `bamoe-<version>`, where version is a simple 3-digit identifer for the version, such as `bamoe-921` or `bamoe-930`.  
-
-You can use standard Git commands in order to switch your local version to a specific branch, such as:
-
-```shell
-git checkout bamoe-921
-```
-
 ### Setup for Decisions (IBM DMOE)
 You will notice from the diagram below, there are only minimal infrastructure services required for DMOE applications.  You can choose to deploy `Maven` either a a container image or into your local `Artifactory` server as an off-line repository, or both.  If you wish to provide visual modeling capabilities to your developers or users, you can choose to deploy `BAMOE Canvas`.  No database or consoles are needed for decisions, however you can configure `Kafka` if your use cases include event-based decisioning.
 
