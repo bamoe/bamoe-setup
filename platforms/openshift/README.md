@@ -95,7 +95,7 @@ This script will use the supplied deploymet .YAML files and create the necessary
 ### Keycloak Identity Access Managment
 
 ### Apache Kafka
-Apache Kafka has been installed in OpenShift using the Strimzi operator, in the `BAMOE_INFRASTRUCTURE_PROJECT` project.  The cluster itself is within the `BAMOE_INFRASTRUCTURE_PROJECT` namespace.  There is also an OpenShift route used to expose the Kafka Bootstrap endpoint for clients outside of the cluster.  Notably, the Confluent VS Code extension which allows you to interact with a Kafka cluster has been installed, but requires configuration. The host for the bootstrap client is `kafka-cluster-kafka-bootstrap-bamoe-v921-infrastructure.apps-crc.testing` on port 443, the HTTPS port. Because of that, a certificate is needed for the client. That certificate is in the `openshift/certs` folder called `ocp-ca.crt. 
+Apache Kafka has been installed in OpenShift using the Strimzi operator, in the `BAMOE_INFRASTRUCTURE_PROJECT` project.  The cluster itself is within the `BAMOE_INFRASTRUCTURE_PROJECT` namespace.  There is also an OpenShift route used to expose the Kafka Bootstrap endpoint for clients outside of the cluster.  Notably, the Confluent VS Code extension which allows you to interact with a Kafka cluster has been installed, but requires configuration. The host for the bootstrap client is `kafka-cluster-kafka-bootstrap-bamoe-v930-infrastructure.apps-crc.testing` on port 443, the HTTPS port. Because of that, a certificate is needed for the client. That certificate is in the `openshift/certs` folder called `ocp-ca.crt. 
 
 
 
