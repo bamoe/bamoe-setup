@@ -18,6 +18,7 @@ oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"
 HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
 oc extract secret/$(oc get ingresscontroller -n openshift-ingress-operator default -o json | jq '.spec.defaultCertificate.name // "router-certs-default"' -r) -n openshift-ingress --confirm
 
-# sudo mv tls.crt /etc/pki/ca-trust/source/anchors/
+mv tls.* ~/.bamoe
 #sudo update-ca-trust enable
-#sudo docker login -u kubeadmin -p $(oc whoami -t) $HOST
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ~/.bamoe/tls.crt
+docker login -u kubeadmin -p $(oc whoami -t) $HOST
