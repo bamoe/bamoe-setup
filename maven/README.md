@@ -17,13 +17,13 @@ If you prefer not to use containers, you can download and configure the BAMOE Ma
 <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/SETTINGS/1.0.0" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <localRepository>${user.home}/.m2/repository</localRepository>
     <profiles>
-        <!-- BAMOE 9.3.0 via Offline -->
+        <!-- BAMOE 9.3.1 via Offline -->
         <profile>
-            <id>ibm-bamoe-v930-offline-maven-repository</id>
+            <id>ibm-bamoe-v931-offline-maven-repository</id>
             <repositories>
                 <repository>
-                    <id>ibm-bamoe-v930-offline-maven-repository</id>
-                    <url>file:///${user.home}/.m2/bamoe-9.3.0-GA-maven-repository</url>
+                    <id>ibm-bamoe-v931-offline-maven-repository</id>
+                    <url>file:///${user.home}/.m2/bamoe-9.3.1-GA-maven-repository</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -34,8 +34,8 @@ If you prefer not to use containers, you can download and configure the BAMOE Ma
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
-                    <id>ibm-bamoe-v930-offline-maven-repository</id>
-                    <url>file:///${user.home}/.m2/bamoe-9.3.0-GA-maven-repository</url>
+                    <id>ibm-bamoe-v931-offline-maven-repository</id>
+                    <url>file:///${user.home}/.m2/bamoe-9.3.1-GA-maven-repository</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -48,8 +48,7 @@ If you prefer not to use containers, you can download and configure the BAMOE Ma
     </profiles>
 
     <activeProfiles>
-        <activeProfile>ibm-bamoe-v930-maven-repository</activeProfile>
-        <activeProfile>ibm-bamoe-v930-offline-maven-repository</activeProfile>
+        <activeProfile>ibm-bamoe-v931-offline-maven-repository</activeProfile>
     </activeProfiles>
 </settings>
 ```

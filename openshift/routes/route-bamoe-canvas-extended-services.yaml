@@ -1,0 +1,79 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: bamoe-canvas-extended-services
+  namespace: bamoe-v930
+  uid: 84d04be8-501c-4fb0-af25-dfd4b83f036a
+  resourceVersion: '9380029'
+  creationTimestamp: '2025-10-12T17:00:36Z'
+  labels:
+    app: bamoe-canvas-extended-services
+    app.kubernetes.io/component: bamoe-canvas-extended-services
+    app.kubernetes.io/instance: bamoe-canvas-extended-services
+    app.kubernetes.io/part-of: bamoe-v930
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-10-12T17:00:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:tls':
+            .: {}
+            'f:termination': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-10-12T17:00:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-10-12T17:00:37Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+spec:
+  host: bamoe-canvas-extended-services-bamoe-v930.apps-crc.testing
+  to:
+    kind: Service
+    name: bamoe-canvas-extended-services
+    weight: 100
+  port:
+    targetPort: 21345-tcp
+  tls:
+    termination: edge
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: bamoe-canvas-extended-services-bamoe-v930.apps-crc.testing
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2025-10-12T17:00:36Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps-crc.testing

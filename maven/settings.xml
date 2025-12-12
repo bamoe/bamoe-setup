@@ -29,10 +29,38 @@
                     </pluginRepository>
             </pluginRepositories>
         </profile>
+
+        <!-- BAMOE 9.3.1 via Offline -->
+        <profile>
+            <id>ibm-bamoe-v931-offline-maven-repository</id>
+            <repositories>
+                <repository>
+                    <id>ibm-bamoe-v931-offline-maven-repository</id>
+                    <url>file:///${user.home}/.m2/bamoe-9.3.1-GA-maven-repository</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>ibm-bamoe-v931-offline-maven-repository</id>
+                    <url>file:///${user.home}/.m2/bamoe-9.3.1-GA-maven-repository</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    </pluginRepository>
+            </pluginRepositories>
+        </profile>
     </profiles>
 
     <activeProfiles>
-        <activeProfile>ibm-bamoe-v930-maven-repository</activeProfile>
-        <activeProfile>ibm-bamoe-v930-offline-maven-repository</activeProfile>
+        <activeProfile>ibm-bamoe-v931-offline-maven-repository</activeProfile>
     </activeProfiles>
 </settings>

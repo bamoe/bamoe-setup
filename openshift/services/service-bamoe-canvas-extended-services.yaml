@@ -1,0 +1,72 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: bamoe-canvas-extended-services
+  namespace: bamoe-v930
+  uid: 6d63f197-9834-42ac-9b7e-c88825d00312
+  resourceVersion: '9380024'
+  creationTimestamp: '2025-10-12T17:00:36Z'
+  labels:
+    app: bamoe-canvas-extended-services
+    app.kubernetes.io/component: bamoe-canvas-extended-services
+    app.kubernetes.io/instance: bamoe-canvas-extended-services
+    app.kubernetes.io/part-of: bamoe-v930
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: v1
+      time: '2025-10-12T17:00:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":21345,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: v1
+      time: '2025-10-12T17:00:37Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+spec:
+  clusterIP: 10.217.5.56
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 21345-tcp
+      protocol: TCP
+      port: 21345
+      targetPort: 21345
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 10.217.5.56
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    deployment: bamoe-canvas-extended-services
+status:
+  loadBalancer: {}

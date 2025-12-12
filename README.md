@@ -31,8 +31,10 @@ The following instructions are helpful in setting up your local environment in o
 ## Setting up IBM BAMOE Environments
 Use the following links in order to setup IBM BAMOE in the environment of your choice:
 
-- [Docker Compose](./platforms/docker-compose/README.md)
-- [Red Hat OpenShift](./platforms/openshift/README.md)
+- [Docker Compose](./docker-compose/README.md)
+- [Red Hat OpenShift](./openshift/README.md)
+- [Podman](./podman/README.md)
+- [Kubernetes](./kubernetes/README.md)
 
 ## Configuring Maven for IBM BAMOE Development
 Use the following link in order to configure [IBM BAMOE Maven](./maven/README.md), using either the offline approach or the container image approach.
