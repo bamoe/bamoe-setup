@@ -2,7 +2,7 @@
 apiVersion: route.openshift.io/v1
 metadata:
   name: bamoe-maven-repository
-  namespace: bamoe-v930
+  namespace: bamoe-v931
   uid: 82434a5c-186d-4247-ae6b-fc643dffdf6c
   resourceVersion: '9376981'
   creationTimestamp: '2025-10-12T16:41:04Z'
@@ -10,7 +10,7 @@ metadata:
     app: bamoe-maven-repository
     app.kubernetes.io/component: bamoe-maven-repository
     app.kubernetes.io/instance: bamoe-maven-repository
-    app.kubernetes.io/part-of: bamoe-v930
+    app.kubernetes.io/part-of: bamoe-v931
   annotations:
     openshift.io/host.generated: 'true'
   managedFields:
@@ -57,7 +57,7 @@ metadata:
           'f:ingress': {}
       subresource: status
 spec:
-  host: bamoe-maven-repository-bamoe-v930.apps-crc.testing
+  host: bamoe-maven-repository-bamoe-v931.apps-crc.testing
   to:
     kind: Service
     name: bamoe-maven-repository
@@ -69,7 +69,7 @@ spec:
   wildcardPolicy: None
 status:
   ingress:
-    - host: bamoe-maven-repository-bamoe-v930.apps-crc.testing
+    - host: bamoe-maven-repository-bamoe-v931.apps-crc.testing
       routerName: default
       conditions:
         - type: Admitted

@@ -121,12 +121,12 @@ metadata:
         'f:metadata':
           'f:labels':
             'f:app.kubernetes.io/part-of': {}
-  namespace: bamoe-v930
+  namespace: bamoe-v931
   labels:
     app: bamoe-maven-repository
     app.kubernetes.io/component: bamoe-maven-repository
     app.kubernetes.io/instance: bamoe-maven-repository
-    app.kubernetes.io/part-of: bamoe-v930
+    app.kubernetes.io/part-of: bamoe-v931
 spec:
   replicas: 1
   selector:

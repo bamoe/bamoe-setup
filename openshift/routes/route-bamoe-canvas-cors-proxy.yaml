@@ -2,7 +2,7 @@
 apiVersion: route.openshift.io/v1
 metadata:
   name: bamoe-canvas-cors-proxy
-  namespace: bamoe-v930
+  namespace: bamoe-v931
   uid: 5df119ca-2092-4b4e-9d71-5f213c76fa7c
   resourceVersion: '9380077'
   creationTimestamp: '2025-10-12T17:00:38Z'
@@ -10,7 +10,7 @@ metadata:
     app: bamoe-canvas-cors-proxy
     app.kubernetes.io/component: bamoe-canvas-cors-proxy
     app.kubernetes.io/instance: bamoe-canvas-cors-proxy
-    app.kubernetes.io/part-of: bamoe-v930
+    app.kubernetes.io/part-of: bamoe-v931
   annotations:
     openshift.io/host.generated: 'true'
   managedFields:
@@ -57,7 +57,7 @@ metadata:
           'f:ingress': {}
       subresource: status
 spec:
-  host: bamoe-canvas-cors-proxy-bamoe-v930.apps-crc.testing
+  host: bamoe-canvas-cors-proxy-bamoe-v931.apps-crc.testing
   to:
     kind: Service
     name: bamoe-canvas-cors-proxy
@@ -69,7 +69,7 @@ spec:
   wildcardPolicy: None
 status:
   ingress:
-    - host: bamoe-canvas-cors-proxy-bamoe-v930.apps-crc.testing
+    - host: bamoe-canvas-cors-proxy-bamoe-v931.apps-crc.testing
       routerName: default
       conditions:
         - type: Admitted

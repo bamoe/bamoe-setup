@@ -2,7 +2,7 @@
 apiVersion: v1
 metadata:
   name: bamoe-canvas-ui
-  namespace: bamoe-v930
+  namespace: bamoe-v931
   uid: 074592dd-f678-44e4-90e3-f383b5bc4e78
   resourceVersion: '9380123'
   creationTimestamp: '2025-10-12T17:00:39Z'
@@ -10,7 +10,7 @@ metadata:
     app: bamoe-canvas-ui
     app.kubernetes.io/component: bamoe-canvas-ui
     app.kubernetes.io/instance: bamoe-canvas-ui
-    app.kubernetes.io/part-of: bamoe-v930
+    app.kubernetes.io/part-of: bamoe-v931
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
   managedFields:

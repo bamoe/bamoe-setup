@@ -132,12 +132,12 @@ metadata:
           'f:replicas': {}
           'f:updatedReplicas': {}
       subresource: status
-  namespace: bamoe-v930
+  namespace: bamoe-v931
   labels:
     app: bamoe-canvas-ui
     app.kubernetes.io/component: bamoe-canvas-ui
     app.kubernetes.io/instance: bamoe-canvas-ui
-    app.kubernetes.io/part-of: bamoe-v930
+    app.kubernetes.io/part-of: bamoe-v931
     app.openshift.io/runtime: js
 spec:
   replicas: 1
@@ -160,9 +160,9 @@ spec:
               protocol: TCP
           env:
             - name: KIE_SANDBOX_CORS_PROXY_URL
-              value: 'https://bamoe-canvas-cors-proxy-bamoe-v930.apps-crc.testing'
+              value: 'https://bamoe-canvas-cors-proxy-bamoe-v931.apps-crc.testing'
             - name: KIE_SANDBOX_EXTENDED_SERVICES_URL
-              value: 'https://bamoe-canvas-extended-services-bamoe-v930.apps-crc.testing'
+              value: 'https://bamoe-canvas-extended-services-bamoe-v931.apps-crc.testing'
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File

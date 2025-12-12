@@ -1,7 +1,7 @@
 services:
 
   ## This section installs the BAMOE Maven repository as a container image
-  bamoe-maven-930:
+  bamoe-931-maven:
     container_name: bamoe-v931-maven
     image: quay.io/bamoe/maven-repository:9.3.1-ibm-0006
     platform: linux/amd64
@@ -9,7 +9,7 @@ services:
       - 9031:8080
 
   # This section installs the main BAMOE Canvas application
-  bamoe-canvas-ui:
+  bamoe-931-canvas-ui:
     container_name: bamoe-v931-canvas-ui
     image: "quay.io/bamoe/canvas:9.3.1-ibm-0006"
     platform: linux/amd64
@@ -31,24 +31,24 @@ services:
         ]
 
     depends_on:
-      - bamoe-canvas-extended-services
-      - bamoe-canvas-cors-proxy
+      - bamoe-931-canvas-extended-services
+      - bamoe-931-canvas-cors-proxy
 
   # This section installs the BAMOE Extended Services container, which is used in support of the overall Canvas application
-  bamoe-canvas-extended-services:
+  bamoe-931-canvas-extended-services:
     container_name: bamoe-v931-canvas-extended-services
     image: "quay.io/bamoe/extended-services:9.3.1-ibm-0006"
     ports:
       - 21345:21345
 
   # This section installs the BAMOE Cors Proxy container, which is used in support of the overall Canvas application
-  bamoe-canvas-cors-proxy:
-    container_name: bamoe-v930-canvas-cors-proxy
+  bamoe-931-canvas-cors-proxy:
+    container_name: bamoe-v931-canvas-cors-proxy
     image: "quay.io/bamoe/cors-proxy:9.3.1-ibm-0006"
     ports:
       - 7081:8080
 
-  bamoe-managment-console:
+  bamoe-931-managment-console:
     container_name: bamoe-v931-management-console
     image: "quay.io/bamoe/management-console:9.3.1-ibm-0006"
     ports:
@@ -56,7 +56,7 @@ services:
     environment:
       RUNTIME_TOOLS_MANAGEMENT_CONSOLE_APP_NAME: "BAMOE Management Console"
 
-  bamoe-mcp-server:
+  bamoe-931-mcp-server:
     container_name: bamoe-v931-mcp-server
     image: "quay.io/bamoe/mcp-server:9.3.1-ibm-0006"
     ports:

@@ -2,7 +2,7 @@
 apiVersion: route.openshift.io/v1
 metadata:
   name: bamoe-management-console
-  namespace: bamoe-v930
+  namespace: bamoe-v931
   uid: 4e659d7b-16b6-4d77-ad67-4c16dc1c2b10
   resourceVersion: '9383314'
   creationTimestamp: '2025-10-12T17:23:20Z'
@@ -10,7 +10,7 @@ metadata:
     app: bamoe-management-console
     app.kubernetes.io/component: bamoe-management-console
     app.kubernetes.io/instance: bamoe-management-console
-    app.kubernetes.io/part-of: bamoe-v930
+    app.kubernetes.io/part-of: bamoe-v931
   annotations:
     openshift.io/host.generated: 'true'
   managedFields:
@@ -57,7 +57,7 @@ metadata:
           'f:ingress': {}
       subresource: status
 spec:
-  host: bamoe-management-console-bamoe-v930.apps-crc.testing
+  host: bamoe-management-console-bamoe-v931.apps-crc.testing
   to:
     kind: Service
     name: bamoe-management-console
@@ -69,7 +69,7 @@ spec:
   wildcardPolicy: None
 status:
   ingress:
-    - host: bamoe-management-console-bamoe-v930.apps-crc.testing
+    - host: bamoe-management-console-bamoe-v931.apps-crc.testing
       routerName: default
       conditions:
         - type: Admitted

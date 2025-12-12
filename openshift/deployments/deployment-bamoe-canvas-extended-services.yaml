@@ -122,12 +122,12 @@ metadata:
           'f:replicas': {}
           'f:updatedReplicas': {}
       subresource: status
-  namespace: bamoe-v930
+  namespace: bamoe-v931
   labels:
     app: bamoe-canvas-extended-services
     app.kubernetes.io/component: bamoe-canvas-extended-services
     app.kubernetes.io/instance: bamoe-canvas-extended-services
-    app.kubernetes.io/part-of: bamoe-v930
+    app.kubernetes.io/part-of: bamoe-v931
     app.openshift.io/runtime: golang
 spec:
   replicas: 1

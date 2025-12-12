@@ -2,7 +2,7 @@
 apiVersion: route.openshift.io/v1
 metadata:
   name: bamoe-canvas-extended-services
-  namespace: bamoe-v930
+  namespace: bamoe-v931
   uid: 84d04be8-501c-4fb0-af25-dfd4b83f036a
   resourceVersion: '9380029'
   creationTimestamp: '2025-10-12T17:00:36Z'
@@ -10,7 +10,7 @@ metadata:
     app: bamoe-canvas-extended-services
     app.kubernetes.io/component: bamoe-canvas-extended-services
     app.kubernetes.io/instance: bamoe-canvas-extended-services
-    app.kubernetes.io/part-of: bamoe-v930
+    app.kubernetes.io/part-of: bamoe-v931
   annotations:
     openshift.io/host.generated: 'true'
   managedFields:
@@ -57,7 +57,7 @@ metadata:
           'f:labels':
             'f:app.kubernetes.io/part-of': {}
 spec:
-  host: bamoe-canvas-extended-services-bamoe-v930.apps-crc.testing
+  host: bamoe-canvas-extended-services-bamoe-v931.apps-crc.testing
   to:
     kind: Service
     name: bamoe-canvas-extended-services
@@ -69,7 +69,7 @@ spec:
   wildcardPolicy: None
 status:
   ingress:
-    - host: bamoe-canvas-extended-services-bamoe-v930.apps-crc.testing
+    - host: bamoe-canvas-extended-services-bamoe-v931.apps-crc.testing
       routerName: default
       conditions:
         - type: Admitted

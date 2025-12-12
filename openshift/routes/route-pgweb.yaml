@@ -2,9 +2,9 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: pgweb-external
-  namespace: bamoe-v930-infrastructure
+  namespace: bamoe-v931-infrastructure
 spec:
-  host: bamoe-pgweb-bamoe-v930-infrastructure.apps-crc.testing
+  host: bamoe-pgweb-bamoe-v931-infrastructure.apps-crc.testing
   to:
     kind: Service
     name: pgweb
