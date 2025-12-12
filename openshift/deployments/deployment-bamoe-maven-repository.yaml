@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   annotations:
     deployment.kubernetes.io/revision: '2'
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-maven-repository:9.3.0-ibm-0007"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-maven-repository\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-maven-repository:9.3.1-ibm-0006"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-maven-repository\")].image"}]'
     openshift.io/generated-by: OpenShiftNewApp
   resourceVersion: '9376998'
   name: bamoe-maven-repository

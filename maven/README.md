@@ -9,7 +9,7 @@ If you have a Maven Repository Manager tool like Artifactory or Nexus, you can i
 ## Configuring a local Maven Repository 
 If you prefer not to use containers, you can download and configure the BAMOE Maven repository from the compressed file. The BAMOE Maven repository contains the libraries that Java developers need to build BAMOE applications.  The following approach can also be used in order to make Maven depencencies available from an enterprise Maven repository, such as `Artifactory`.  To configure the BAMOE Maven repository locally follow these steps:
 
-1.  Download the BAMOE v9.3.0 Maven Repository (`.offline/bamoe-9.3.0.GA-maven-repository`).
+1.  Download the BAMOE v9.3.1 Maven Repository (`.offline/bamoe-9.3.1.GA-maven-repository`).
 2.  Extract the downloaded archive in your local `~/.m2/` directory and open the Maven `settings.xml` file in a text editor or IDE.
 3.  Update your local `settings.xml` file, adding profiles from the snippet below:
 

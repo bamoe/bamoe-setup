@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   annotations:
     deployment.kubernetes.io/revision: '2'
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-management-console:9.3.0-ibm-0007"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-management-console\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-management-console:9.3.1-ibm-0006"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-management-console\")].image"}]'
     openshift.io/generated-by: OpenShiftNewApp
   resourceVersion: '9383349'
   name: bamoe-management-console
