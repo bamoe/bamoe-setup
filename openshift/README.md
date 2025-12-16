@@ -4,7 +4,7 @@ This document includes instructions on how to setup IBM BAMOE on Red Hat OpenShi
 ## Overview
 The following scripts and Openshift YAML configuation files are made available to setup IBM BAMOE on OpenShift.  Please note that the version of OpenShift that this has been tested on is [OpenShift Local](https://developers.redhat.com/products/openshift-local/overview) and there may be differences when setting up on normal OpenShift.  
 
-The `scripts` folder contains a number of shell scrips that are helpful not only in the installation phase, but also during development and deployment.  There are scripts which allow you to login to the OpenShift CLI or Docker, and scripts which drive the installation process.  Each script expects a property file as it's first input parameter, and there is a sample property file in the following folder in the repository:  `platforms/openshift/ocp.properties`, so you can either update this file or create your own.  Each script uses the following syntax:
+The `scripts` folder contains a number of shell scrips that are helpful not only in the installation phase, but also during development and deployment.  There are scripts which allow you to login to the OpenShift CLI or Docker, and scripts which drive the installation process.  Each script expects a property file as it's first input parameter, and there is a sample property file in the following folder in the repository at `./openshift/bamoe-931.properties`, so you can either update this file or create your own.  Each script uses the following syntax:
 
 ```shell
 cd ./scripts
@@ -18,7 +18,7 @@ The following property file is supplied for you, so all you need to do is update
 OCP_URL=https://api.crc.testing:6443
 OCP_CONSOLE_URL=https://console-openshift-console.apps-crc.testing
 OCP_USER=kubeadmin
-OCP_PASS=teUI9-bF924-zsJ5Q-YNufd
+OCP_PASS=**********
 OCP_DEFAULT_PROJECT=bamoe-v931
 
 # IBM BAMOE Properties
@@ -26,7 +26,7 @@ BAMOE_VERSION=9.3.1-ibm-0006
 BAMOE_GROUP=bamoe-v931
 BAMOE_PROJECT=bamoe-v931
 BAMOE_INFRASTRUCTURE_PROJECT=bamoe-v931-infrastructure
-BAMOE_APPS_PROJECT=bamoe-demos
+BAMOE_APPS_PROJECT=bamoe-v931-demos
 
 # IBM BAMOE Maven
 BAMOE_MAVEN_REPOSITORY_IMAGE=quay.io/bamoe/maven-repository:${BAMOE_VERSION}
@@ -67,4 +67,11 @@ crc config set cpus 6
 crc config set disk-size 75
 crc start
 ```
+
+## Installation Process
+The following process can be followed in order to configure BAMOE on an available OpenShift cluser:
+
+- Install pre-requisists, such as **JDK** 21, a **GIT** client, and a **Maven** client.  See the instructions [here](https://github.com/bamoe/bamoe-setup/blob/main/README.md#requirements-for-local-machine-setup) for local machine pre-reqrequisit installation.  
+- Use the [pre-defined scripts](./scripts/README.md) in order to install the various BAMOE product components.
+- Use the [pre-defined scripts](./scripts/README.md) in order to install the various BAMOE supported infrastructure components, such as a database.  Please note that not all infrastructure services are required to be installed into the OpenShift cluster.  Please refer to your OpenShift administrator for more information about infrastructure services.
 
